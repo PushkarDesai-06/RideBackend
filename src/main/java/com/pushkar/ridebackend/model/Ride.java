@@ -1,9 +1,9 @@
 package com.pushkar.ridebackend.model;
 
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.Date;
 
 @Document(collection = "ride")
 public class Ride {
@@ -15,9 +15,18 @@ public class Ride {
     private String pickupLocation;
     private String dropLocation;
     private String status;
-    private Date date;
+    private Date createdAt;
 
-    public Ride(){}
+    public Ride() {
+    }
+
+    public Ride(String userId, String pickupLocation, String dropLocation, String status, Date createdAt) {
+        this.userId = userId;
+        this.pickupLocation = pickupLocation;
+        this.dropLocation = dropLocation;
+        this.status = status;
+        this.createdAt = createdAt;
+    }
 
     public String getId() {
         return id;
@@ -32,7 +41,7 @@ public class Ride {
                 ", pickupLocation='" + pickupLocation + '\'' +
                 ", dropLocation='" + dropLocation + '\'' +
                 ", status='" + status + '\'' +
-                ", date=" + date +
+                ", createdAt=" + createdAt +
                 '}';
     }
 
@@ -80,29 +89,11 @@ public class Ride {
         this.status = status;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Ride(String userId, String pickupLocation, String dropLocation, String status, Date date) {
-        this.id = id;
-        this.userId = userId;
-        this.pickupLocation = pickupLocation;
-        this.dropLocation = dropLocation;
-        this.status = status;
-        this.date = date;
-    }
-
-    public Ride(String userId, String driverId, String pickupLocation, String dropLocation, String status, Date date) {
-        this.userId = userId;
-        this.driverId = driverId;
-        this.pickupLocation = pickupLocation;
-        this.dropLocation = dropLocation;
-        this.status = status;
-        this.date = date;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

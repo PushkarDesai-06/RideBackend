@@ -3,7 +3,7 @@ package com.pushkar.ridebackend.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "user")
+@Document(collection = "user")
 public class User {
     @Id
     private String id;
@@ -12,7 +12,8 @@ public class User {
     private String password;
     private String role;
 
-    public User() {}
+    public User() {
+    }
 
     public User(String username, String password, String role) {
         this.username = username;
