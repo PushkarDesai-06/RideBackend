@@ -1,4 +1,4 @@
-# RideShare Backend API - Project Submission
+# RideShare Backend API
 
 ---
 
